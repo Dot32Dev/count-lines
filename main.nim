@@ -2,8 +2,9 @@
 import os
 import strutils 
 
-echo currentSourcePath.parentDir()
-echo getCurrentDir()
+const printLength = 35
+# echo currentSourcePath.parentDir()
+# echo getCurrentDir()
 
 if getCurrentDir() & "/" == getHomeDir():
 	echo "\e[31m" & "\nCannot run this program from home directory, aborting\n" & "\e[0m"
@@ -12,9 +13,9 @@ if getCurrentDir() & "/" == getHomeDir():
 	echo "To fix this, you should run the executable with a terminal, as it does not have the same problem."
 	quit(1)
 
-# assert getCurrentDir() & "/" != getHomeDir()
+var totalLines = 0 
 
-var totalLines = 0
+echo "Counting lines from " & replace(getCurrentDir(), parentDir(getCurrentDir()) & "/", "") & ":"
 
 for file in walkDirRec getCurrentDir():
 	let fileSplit = splitFile(file)
@@ -24,7 +25,7 @@ for file in walkDirRec getCurrentDir():
 	var str = localDir & fileSplit.name & fileSplit.ext
 	str.delete(0, 0)
 
-	if fileSplit.ext != "":
+	if fileSplit.ext != "" and not contains(fileSplit.dir, '.') and fileSplit.ext == ".lua":
 		var i = 1
 		for line in lines str:
 			inc(i)
@@ -32,6 +33,18 @@ for file in walkDirRec getCurrentDir():
 	else:
 		continue
 
-	echo str & " ... " & $lineCount
+	let distance = printLength - str.len
+	# echo str & " ... " & $lineCount
+	stdout.write "\n" & str & " "
+	for i in 1..distance:
+		stdout.write "."
+	stdout.write " " & $lineCount #& "\n"
+
 	totalLines = totalLines + lineCount
-echo "total" & " ... " & $totalLines
+
+let distance = printLength - "total".len
+stdout.write "\n" & "total" & " "
+for i in 1..distance:
+	stdout.write "."
+stdout.write " " & $totalLines & "\n"
+echo ""
