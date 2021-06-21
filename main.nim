@@ -14,17 +14,24 @@ if getCurrentDir() & "/" == getHomeDir():
 
 # assert getCurrentDir() & "/" != getHomeDir()
 
+var totalLines = 0
+
 for file in walkDirRec getCurrentDir():
 	let fileSplit = splitFile(file)
 	let localDir = replace(fileSplit.dir, getCurrentDir(), "") & "/"
-	var lineCount = "N/A"
+	var lineCount = 0
 
 	var str = localDir & fileSplit.name & fileSplit.ext
 	str.delete(0, 0)
 
-	if fileSplit.ext == ".lua":
+	if fileSplit.ext != "":
 		var i = 1
 		for line in lines str:
 			inc(i)
-		lineCount = $ i
-	echo str & " ... " & lineCount
+		lineCount = i
+	else:
+		continue
+
+	echo str & " ... " & $lineCount
+	totalLines = totalLines + lineCount
+echo "total" & " ... " & $totalLines
