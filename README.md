@@ -13,5 +13,5 @@ On macos, simply placing the executable in your target folder and double clickin
 - Right click said containing folder and under Services, select "New terminal at folder"
 - run `./main`, and it should work as intended! Behold, you source code has had it's length measured.
 
-I have not tested this application on other operating systems, but there is no reason as to why it wouldn't work as intended. <br>
+I have not tested this application on other operating systems, but there is no reason as to why it wouldn't work as intended. <br> <br>
 This application will not read the length of a file if it is contained within a hidden directory (ei `.git` files)
