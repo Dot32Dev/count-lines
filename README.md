@@ -4,7 +4,7 @@ This terminal program will read the length of any lua files in the given directo
 
 ### Building
 - Download the nim programming language `brew install nim` (macos brew command)
-- Download the source for this project and compile it with `nim c -r main.nim` (c == compile, -r == run, main.nim == target)
+- Download the source for this project and compile it with `nim c -r main.nim` (c == compile, -r == run, main.nim == source)
 
 ### Usage
 On macos, simply placing the executable in your target folder and double clicking to execute it *not work;* you must:
