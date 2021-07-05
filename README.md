@@ -7,7 +7,7 @@ This terminal program will read the length of any lua files in the given directo
 - Download the source for this project and compile it with `nim c -r main.nim` (c == compile, -r == run, main.nim == source)
 
 ### Usage
-On macos, simply placing the executable in your target folder and double clicking to execute it *not work;* you must:
+On macos, simply placing the executable in your target folder and double clicking to execute it will *not work;* you must:
 - Place it in your target folder
 - Locate your taget folder within it's parent directory
 - Right click said containing folder and under Services, select "New terminal at folder"
