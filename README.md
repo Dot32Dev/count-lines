@@ -1,3 +1,5 @@
+Note: As of writing this I am now aware of this bash command `find . -name '*.lua' | xargs wc -l` that does this programs job, without having to download anything. 
+
 ## Count lines from .lua files
 This terminal program will read the length of any lua files in the given directory (and child directories), echoing it back to you and summing it together in a nice total. Here are how many lines my Isondo project currently fullfills: <br>
 <img width="322" alt="Screen Shot 2021-06-21 at 10 54 10 pm" src="https://user-images.githubusercontent.com/61964090/123012218-7696b000-d3f4-11eb-8555-2cbff6a57586.png">
